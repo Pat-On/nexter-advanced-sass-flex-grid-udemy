@@ -33,3 +33,22 @@ body {
   font-weight: 300;
   line-height: 1.6;
 }
+
+.container {
+  display: grid;
+  // auto is the same to min-content in this place
+  //vh and vw are very important in real world projects!
+  grid-template-rows: 80vh min-content 40vw repeat(3, min-content);
+  // we have this 1fr because we want to have like borders in projects. (going to occupy rest of the view port)
+  grid-template-columns:
+    [sidebar-start] 8rem [sidebar-end full-start] minmax(6rem, 1fr)
+    [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end])
+    [center-end] minmax(6rem, 1fr)
+    [full-end];
+
+  // development
+  //   & > * {
+  //     padding: 40px;
+  //     font-size: 3rem;
+  //   }
+}
